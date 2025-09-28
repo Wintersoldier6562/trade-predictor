@@ -1,0 +1,9 @@
+{
+  "pages": {
+    "/api/cron/stock-analysis/route": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/api/cron/stock-analysis/route.js"
+    ]
+  }
+}
