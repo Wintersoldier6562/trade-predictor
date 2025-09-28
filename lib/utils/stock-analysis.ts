@@ -327,17 +327,26 @@ PRICE CALCULATION RULES:
 - All prices should be rounded to 2 decimal places
 - Use actual data from tools, not estimates
 
-Response Format:
-Response should be in the following format in json and there should be no other text in the response:
-STOCK NAME: <STOCK NAME>
-ENTRY PRICE: <ENTRY PRICE>
-TARGET PRICE: <TARGET PRICE>
-STOP LOSS: <STOP LOSS>
-TIME HORIZON: <TIME HORIZON>
-CONFIDENCE LEVEL: <CONFIDENCE LEVEL>
-SETUP TYPE: <SETUP TYPE>
-REASONING: <REASONING>
-LATEST NEWS: <LATEST NEWS>
+CRITICAL: Your response must be EXACTLY in this JSON format with no additional text, explanations, or markdown formatting:
+\`\`\`json
+{
+  "STOCK NAME": "ACTUAL_STOCK_NAME",
+  "ENTRY PRICE": "123.45",
+  "TARGET PRICE": "150.00",
+  "STOP LOSS": "115.00",
+  "TIME HORIZON": "2-3 weeks",
+  "CONFIDENCE LEVEL": "High",
+  "SETUP TYPE": "Breakout",
+  "REASONING": "Detailed technical analysis reasoning here",
+  "LATEST NEWS": "Recent news and market sentiment here"
+}
+\`\`\`
+
+IMPORTANT: 
+- Use actual values, not placeholders
+- No additional text before or after the JSON
+- All prices must be numbers (not strings with currency symbols)
+- Use proper JSON syntax with double quotes
 `;
 
     const result = await streamText({
@@ -351,7 +360,8 @@ LATEST NEWS: <LATEST NEWS>
         exaWebSearch: exaWebSearch,
       },
       activeTools: ['getStockDetails', 'getStockHistory', 'exaWebSearch'],
-      temperature: 0.1,
+      temperature: 0.0, // Set to 0 for maximum determinism
+      topP: 0.1, // Lower topP for more focused responses
     });
 
     let fullText = '';
