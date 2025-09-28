@@ -163,10 +163,10 @@ const exaWebSearch = tool({
           category: currentTopic === 'finance' ? 'financial report' : currentTopic === 'news' ? 'news' : '',
         };
 
+        // Exa API only allows one of includeDomains or excludeDomains, not both
         if (include_domains && include_domains.length > 0) {
           searchOptions.includeDomains = include_domains.map(domain => extractDomain(domain));
-        }
-        if (exclude_domains && exclude_domains.length > 0) {
+        } else if (exclude_domains && exclude_domains.length > 0) {
           searchOptions.excludeDomains = exclude_domains.map(domain => extractDomain(domain));
         }
 
@@ -421,7 +421,7 @@ Please review all recommendations carefully before making any investment decisio
 
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER,
+      to: process.env.GAMIL_SEND_TO_USER,
       subject: emailSubject,
       text: emailBody
     };

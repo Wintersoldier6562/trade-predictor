@@ -10,7 +10,7 @@ interface AnalysisResult {
 }
 
 export default function Home() {
-  const [stocks, setStocks] = useState('ITBEES,RELIANCE,TCS');
+  const [stocks, setStocks] = useState('ITBEES,PSUBNKBEES,CPSEETF,BANKBEES');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<AnalysisResult | null>(null);
 

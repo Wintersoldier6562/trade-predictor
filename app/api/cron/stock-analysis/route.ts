@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     console.log('🕐 Cron job triggered at:', new Date().toISOString());
 
     // Default stocks to analyze
-    const defaultStocks = ['ITBEES', 'RELIANCE', 'TCS', 'HDFC', 'INFY'];
+    const defaultStocks = ['ITBEES', 'PSUBNKBEES', 'CPSEETF', 'BANKBEES'];
     
     // Use the utility function directly instead of calling the API
     const analysisResult = await analyzeStocks(defaultStocks);
