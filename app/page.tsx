@@ -83,18 +83,6 @@ export default function Home() {
           <pre>{JSON.stringify(result, null, 2)}</pre>
         </div>
       )}
-
-      <div style={{ marginTop: '2rem', fontSize: '0.9rem', color: '#666' }}>
-        <h3>API Endpoints:</h3>
-        <ul>
-          <li><code>GET /api/health</code> - Health check</li>
-          <li><code>POST /api/analyze-stocks</code> - Analyze stocks</li>
-          <li><code>POST /api/cron/stock-analysis</code> - Cron job endpoint</li>
-        </ul>
-        
-        <h3>Cron Schedule:</h3>
-        <p>Stock analysis runs automatically every weekday at 9:00 AM IST</p>
-      </div>
     </div>
   );
 }
